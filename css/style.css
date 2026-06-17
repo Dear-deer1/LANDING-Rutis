@@ -162,7 +162,7 @@ body {
 
 /* Перчик чили */
 .hero__char--chili {
-  left: -10px;
+  left: 40px;
   top: 54%;
   width: clamp(160px, 22vw, 340px);
   z-index: 2;
@@ -996,7 +996,7 @@ body {
   .hero__char--chili {
     width: 40vw;
     top: 54%;
-    left: 80px;
+    left: 30px;
   }
 
   .hero__char--onion {
@@ -1021,6 +1021,7 @@ body {
   .final-cta { padding: 60px 0; }
   .final-cta .section-title { text-align: center; }
   .final-cta__content { margin: 0; }
+  .final-cta__content .btn-orange { margin: 0 auto; }
 
   .faq__question { padding: 20px; }
   .faq__question > span:first-child { font-size: 16px; }
