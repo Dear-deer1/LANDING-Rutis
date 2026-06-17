@@ -149,57 +149,47 @@ body {
   object-fit: contain;
 }
 
-/* ЛЕВАЯ СТОРОНА — крупные */
+/* Помидор — левая сторона, крупный */
 .hero__char--tomato {
   left: -15px;
-  top: 8%;
-  width: clamp(180px, 24vw, 380px);
-  transform: rotate(-6deg);
+  top: 22%;
+  width: clamp(200px, 25vw, 380px);
+  transform: rotate(-11deg);
 }
 
+/* Перчик чили — левая сторона, ВЫШЕ помидора, очень большой */
 .hero__char--chili {
-  left: 1%;
-  top: 52%;
-  width: clamp(130px, 18vw, 280px);
-  transform: rotate(8deg);
+  left: -10px;
+  top: 2%;
+  width: clamp(160px, 22vw, 340px);
+  transform: rotate(5deg);
+  z-index: 2;
 }
 
-/* ЦЕНТР — маленькие, вокруг логотипа */
+/* Лимон — за логотипом, правее центра, чуть сверху */
 .hero__char--lemon {
-  left: 42%;
-  top: 8%;
-  width: clamp(65px, 9vw, 140px);
-  transform: rotate(18deg);
+  left: 64%;
+  top: 30%;
+  width: clamp(70px, 9vw, 135px);
+  transform: rotate(-25deg);
+  /* z-index: 1 (default) — прячется за hero__content z-index:2 */
 }
 
+/* Клубника — на логотипе, впереди */
 .hero__char--strawberry {
-  left: 49%;
-  top: 54%;
+  left: 50%;
+  top: 47%;
   width: clamp(40px, 5vw, 70px);
   transform: translateX(-50%) rotate(-12deg);
   z-index: 3;
 }
 
+/* Лук — огромный, правая сторона */
 .hero__char--onion {
-  right: -25px;
-  top: 2%;
-  width: clamp(230px, 34vw, 540px);
+  right: -30px;
+  top: 0%;
+  width: clamp(300px, 44vw, 680px);
   transform: rotate(-3deg);
-}
-
-.hero__char--pepper {
-  right: 14%;
-  bottom: 2%;
-  width: clamp(90px, 13vw, 200px);
-  transform: rotate(10deg);
-}
-
-/* Салат — небольшой, верхняя левая зона */
-.hero__char--lettuce {
-  left: 20%;
-  top: 3%;
-  width: clamp(50px, 6.5vw, 95px);
-  transform: rotate(-16deg);
 }
 
 /* ===== ABOUT ===== */
@@ -210,12 +200,22 @@ body {
 }
 
 .about__text {
-  font-size: clamp(22px, 3.75vw, 48px);
-  font-weight: 600;
-  line-height: 1.05;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
   position: relative;
   z-index: 1;
 }
+
+.about__line {
+  font-size: clamp(20px, 3.5vw, 46px);
+  font-weight: 600;
+  line-height: 1.1;
+  display: block;
+}
+
+.about__line--indent { padding-left: 12%; }
+.about__line--short  { max-width: 68%; }
 
 .about__orange {
   color: var(--c-dark);
@@ -224,8 +224,6 @@ body {
 
 .about--revealed .about__orange { color: var(--c-orange); }
 
-.about__dark { color: var(--c-dark); }
-
 .about__deco {
   position: absolute;
   pointer-events: none;
@@ -233,17 +231,17 @@ body {
 }
 
 .about__deco--lop {
-  left: clamp(-40px, -2vw, -10px);
+  left: clamp(-30px, -1vw, 0px);
   top: 50%;
-  transform: translateY(-55%) rotate(-20deg);
-  width: clamp(80px, 11vw, 160px);
+  transform: translateY(-50%) rotate(10deg);
+  width: clamp(80px, 11vw, 155px);
 }
 
 .about__deco--ley {
   right: clamp(-20px, -1vw, 10px);
   top: 50%;
   transform: translateY(-45%) rotate(14deg);
-  width: clamp(110px, 16vw, 220px);
+  width: clamp(130px, 19vw, 270px);
 }
 
 /* ===== SECTION TITLE ===== */
@@ -661,7 +659,6 @@ body {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  filter: brightness(0) invert(1);
 }
 
 /* ===== RESPONSIVE ===== */
@@ -683,14 +680,12 @@ body {
 
   .hero { min-height: 100svh; }
 
-  /* Подстройка персонажей на узких экранах */
-  .hero__char--tomato  { width: clamp(120px, 32vw, 220px); top: 12%; }
-  .hero__char--chili   { width: clamp(90px, 24vw, 160px); top: 56%; }
-  .hero__char--onion   { width: clamp(150px, 40vw, 300px); }
-  .hero__char--lemon   { left: 36%; top: 10%; width: clamp(50px, 11vw, 90px); }
-  .hero__char--strawberry { top: 56%; }
-  .hero__char--pepper  { right: 10%; width: clamp(60px, 16vw, 110px); }
-  .hero__char--lettuce { display: none; }
+  /* Персонажи на узких экранах */
+  .hero__char--tomato  { width: clamp(120px, 30vw, 200px); top: 24%; }
+  .hero__char--chili   { width: clamp(100px, 26vw, 180px); top: 3%; }
+  .hero__char--onion   { width: clamp(180px, 44vw, 320px); }
+  .hero__char--lemon   { left: 58%; top: 32%; width: clamp(50px, 10vw, 80px); }
+  .hero__char--strawberry { top: 50%; }
 
   .about { padding: 48px 0; }
   .for-whom { padding: 40px 0 60px; }
