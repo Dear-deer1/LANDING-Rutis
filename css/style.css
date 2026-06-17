@@ -6,19 +6,12 @@
   --c-yellow: #F8E46E;
   --c-orange: #FA8153;
 
-  --f-body: 'TT Fors Trial', sans-serif;
+  --f-body: 'Montserrat', sans-serif;
 
   --px: 80px;
 }
 
 /* ===== BASE ===== */
-@font-face {
-  font-family: 'TT Fors Trial';
-  src: url('../fonts/TT Fors Trial Variable.woff2') format('woff2');
-  font-weight: 100 900;
-  font-style: normal;
-  font-display: swap;
-}
 
 body {
   font-family: var(--f-body);
