@@ -488,6 +488,9 @@ body {
   justify-content: center;
 }
 
+/* Лопатка — только на мобиле */
+.steps__lop { display: none; }
+
 /* ===== KIT ===== */
 .kit {
   padding: 80px 0;
@@ -916,7 +919,9 @@ body {
   .steps { padding: 60px 0; }
   .kit { padding: 60px 0; }
   .faq { padding: 60px 0; }
-  .final-cta { padding: 60px 0; }
+  .final-cta { padding: 60px 0; text-align: left; }
+  .final-cta .section-title { text-align: left; }
+  .final-cta__desc { margin-left: 0; }
 
   .faq__question { padding: 20px; }
   .faq__question > span:first-child { font-size: 16px; }
@@ -943,6 +948,21 @@ body {
   .steps__grid { flex-wrap: wrap; gap: 28px; }
   .steps__arrow { display: none; }
   .step { flex: 0 0 100%; }
+
+  .step__title { color: var(--c-dark); }
+
+  .steps__lop {
+    display: block;
+    position: absolute;
+    right: -24px;
+    bottom: 60px;
+    width: 58vw;
+    pointer-events: none;
+    z-index: 0;
+    animation: shovel-dig 3.8s ease-in-out infinite;
+    animation-delay: -1.2s;
+    transform-origin: bottom center;
+  }
 
   .footer { min-height: 360px; }
   .footer__socials { gap: 20px; }
