@@ -55,6 +55,23 @@
   to { transform: rotate(360deg); }
 }
 
+/* ── Kit-иконки: лёгкое дёргание ── */
+@keyframes jolt-kit-a {
+  0%, 20%   { transform: rotate(0deg) translate(0, 0); }
+  22%       { transform: rotate(-4deg) translate(-3px, 2px); }
+  24%       { transform: rotate(3deg)  translate(2px, -2px); }
+  26%       { transform: rotate(-2deg) translate(-1px, 1px); }
+  28%, 100% { transform: rotate(0deg) translate(0, 0); }
+}
+
+@keyframes jolt-kit-b {
+  0%, 25%   { transform: rotate(0deg) translate(0, 0); }
+  27%       { transform: rotate(5deg)  translate(3px, -3px); }
+  29%       { transform: rotate(-3deg) translate(-2px, 2px); }
+  31%       { transform: rotate(2deg)  translate(1px, -1px); }
+  33%, 100% { transform: rotate(0deg) translate(0, 0); }
+}
+
 /* ── Лейка: наклоняется и «поливает» ── */
 @keyframes water-pour {
   0%, 30%   { transform: translateY(-45%) rotate(14deg); }

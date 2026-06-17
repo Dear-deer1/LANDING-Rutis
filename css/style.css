@@ -363,48 +363,49 @@ body {
   );
   display: flex;
   flex-direction: column;
+  align-items: center;
   min-height: 320px;
   box-sizing: border-box;
+  padding: 32px 0 0;
 }
 
-/* Rim: number + title, центр */
-.pot-card__rim {
+/* Центральная зона — текст вертикально по центру */
+.pot-card__content {
+  flex: 1;
   display: flex;
-  align-items: flex-start;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
-  gap: 10px;
-  padding: 16px 18px 8px;
   text-align: center;
-}
-
-.pot-card__num {
-  font-size: clamp(36px, 4vw, 52px);
-  font-weight: 700;
-  line-height: 1;
-  color: var(--c-bg);
-  flex-shrink: 0;
+  padding: 0 18%;
+  width: 100%;
 }
 
 .pot-card__title {
   font-size: 15px;
   font-weight: 600;
-  line-height: 1.2;
-  padding-top: 4px;
-  text-align: center;
+  line-height: 1.25;
+  margin-bottom: 10px;
 }
 
 .pot-card__title--orange { color: var(--c-orange); }
 .pot-card__title--green  { color: var(--c-green); }
 
-/* Description — in the narrowing body, centered */
 .pot-card__desc {
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 400;
   line-height: 1.35;
   color: var(--c-bg);
-  padding: 4px 22% 24px;
-  text-align: center;
-  flex: 1;
+}
+
+/* Цифра — в самом низу горшочка */
+.pot-card__num {
+  font-size: clamp(32px, 3.6vw, 48px);
+  font-weight: 700;
+  line-height: 1;
+  color: var(--c-bg);
+  padding: 12px 0 22px;
+  flex-shrink: 0;
 }
 
 /* ===== STEPS ===== */
@@ -415,19 +416,19 @@ body {
   overflow: hidden;
 }
 
-/* Зелёный фон — изначально уехал влево, въезжает по скроллу */
+/* Зелёный фон — влетает по диагонали из верхнего левого угла */
 .steps::before {
   content: '';
   position: absolute;
   inset: -120px -300px;
   background: var(--c-green);
   z-index: -1;
-  transform: translateX(-105%) rotate(6deg);
-  transition: transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translate(-75%, -65%) rotate(6deg);
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .steps.steps--revealed::before {
-  transform: translateX(0) rotate(6deg);
+  transform: translate(0, 0) rotate(6deg);
 }
 
 .steps__grid {
@@ -447,40 +448,18 @@ body {
 
 /* Стрелка между шагами */
 .steps__arrow {
-  flex: 0 0 56px;
+  flex: 0 0 40px;
   display: flex;
   align-items: flex-start;
-  padding-top: 0;
-  position: relative;
-  height: 20px;
-  margin-top: 0;
+  padding-top: 2px;
   align-self: flex-start;
 }
 
-/* Линия */
-.steps__arrow::before {
-  content: '';
-  position: absolute;
-  top: 9px;
-  left: 4px;
-  right: 18px;
-  height: 1.5px;
-  background: var(--c-dark);
-  opacity: 0.35;
-}
-
-/* Наконечник */
-.steps__arrow::after {
-  content: '';
-  position: absolute;
-  top: 3px;
-  right: 4px;
-  width: 11px;
-  height: 11px;
-  border-top: 1.5px solid var(--c-dark);
-  border-right: 1.5px solid var(--c-dark);
-  transform: rotate(45deg);
-  opacity: 0.35;
+.steps__arrow img {
+  width: 100%;
+  height: auto;
+  display: block;
+  opacity: 0.7;
 }
 
 .step__title {
@@ -527,28 +506,42 @@ body {
   flex-direction: column;
 }
 
-/* Иконка занимает всё оставшееся место в колонке */
+/* Иконка — фиксированная высота, одинаковый отступ от текста */
 .kit-item__icon {
-  flex: 1;
+  height: 180px;
+  flex-shrink: 0;
   display: flex;
   align-items: flex-end;
   justify-content: flex-start;
-  min-height: 180px;
-  margin-top: 24px;
+  margin-top: 20px;
 }
 
 .kit-item__icon img {
-  width: 100%;
-  height: auto;
+  max-height: 100%;
+  width: auto;
+  max-width: 100%;
   object-fit: contain;
+  display: block;
 }
 
-/* Семена: иконка сверху — выравниваем её по верхнему краю */
+/* Иконка сверху — центрируем по горизонтали */
 .kit-item--icon-top .kit-item__icon {
   align-items: flex-start;
+  justify-content: center;
   margin-top: 0;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
 }
+
+.kit-item--icon-top .kit-item__title,
+.kit-item--icon-top .kit-item__desc {
+  text-align: center;
+}
+
+/* Анимации дергания для иконок */
+.kit-item:nth-child(1) .kit-item__icon img { animation: jolt-kit-a 5s ease-in-out infinite; animation-delay: -0.4s; }
+.kit-item:nth-child(2) .kit-item__icon img { animation: jolt-kit-b 4.2s ease-in-out infinite; animation-delay: -1.8s; }
+.kit-item:nth-child(3) .kit-item__icon img { animation: jolt-kit-a 4.8s ease-in-out infinite; animation-delay: -3.1s; }
+.kit-item:nth-child(4) .kit-item__icon img { animation: jolt-kit-b 5.5s ease-in-out infinite; animation-delay: -0.9s; }
 
 .kit-item__title {
   font-size: 18px;
@@ -573,13 +566,19 @@ body {
   overflow: hidden;
 }
 
+/* Жёлтый фон — влетает по диагонали из верхнего правого угла */
 .faq::before {
   content: '';
   position: absolute;
   inset: -120px -300px;
   background: var(--c-yellow);
-  transform: rotate(-9deg);
   z-index: -1;
+  transform: translate(75%, -65%) rotate(-9deg);
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.faq.faq--revealed::before {
+  transform: translate(0, 0) rotate(-9deg);
 }
 
 .faq__list {
@@ -745,6 +744,47 @@ body {
   width: 100%;
   height: 100%;
   object-fit: contain;
+}
+
+/* Instagram popup */
+.footer__social-link--ig {
+  position: relative;
+  overflow: visible;
+}
+
+.ig-popup {
+  position: absolute;
+  bottom: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%) translateY(4px);
+  background: var(--c-bg);
+  color: var(--c-dark);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.3;
+  white-space: nowrap;
+  padding: 7px 12px;
+  border-radius: 8px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.18s ease, transform 0.18s ease;
+  z-index: 10;
+}
+
+/* Хвостик */
+.ig-popup::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-top-color: var(--c-bg);
+}
+
+.footer__social-link--ig:hover .ig-popup {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
 }
 
 /* ===== RESPONSIVE ===== */

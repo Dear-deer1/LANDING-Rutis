@@ -18,22 +18,23 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  /* ── Steps green background slide-in on scroll ── */
-  const steps = document.querySelector('.steps');
-  if (steps) {
-    const stepsObserver = new IntersectionObserver(
+  /* ── Slide-in backgrounds on scroll ── */
+  [
+    { selector: '.steps', cls: 'steps--revealed' },
+    { selector: '.faq',   cls: 'faq--revealed'   },
+  ].forEach(({ selector, cls }) => {
+    const el = document.querySelector(selector);
+    if (!el) return;
+    const obs = new IntersectionObserver(
       (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            steps.classList.add('steps--revealed');
-            stepsObserver.unobserve(steps);
-          }
+        entries.forEach((e) => {
+          if (e.isIntersecting) { el.classList.add(cls); obs.unobserve(el); }
         });
       },
       { threshold: 0.15 }
     );
-    stepsObserver.observe(steps);
-  }
+    obs.observe(el);
+  });
 
   /* ── About text colour reveal on scroll ── */
   const about = document.querySelector('.about');
