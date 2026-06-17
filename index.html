@@ -3,310 +3,279 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Rutis — Твой огород с характером</title>
+  <title>Rutis — Набор для выращивания микрозелени</title>
   <link rel="icon" type="image/svg+xml" href="img/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/reset.css" />
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
 
-  <!-- ===== HEADER ===== -->
-  <header class="header">
-    <div class="container">
-      <div class="header__inner">
-        <a href="#" class="header__logo">
-          <img src="img/Rutis logo.svg" alt="Rutis" />
-        </a>
-        <nav class="nav">
-          <ul class="nav__list">
-            <li><a class="nav__link" href="#about">О проекте</a></li>
-            <li><a class="nav__link" href="#features">Что мы делаем</a></li>
-            <li><a class="nav__link" href="#characters">Персонажи</a></li>
-            <li><a class="nav__link" href="#socials">Каналы</a></li>
-          </ul>
-        </nav>
-        <a class="header__cta" href="#socials">Подписаться</a>
-      </div>
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+
+    <nav class="nav">
+      <ul class="nav__list">
+        <li><a class="nav__link" href="#about">О нас</a></li>
+        <li><a class="nav__link" href="#for-whom">Кому подойдёт</a></li>
+        <li><a class="nav__link" href="#kit">Что в наборе</a></li>
+        <li><a class="nav__link" href="#faq">FAQ</a></li>
+        <li><a class="nav__link" href="#footer">Соц.сети</a></li>
+      </ul>
+    </nav>
+
+    <img class="hero__deco hero__deco--left"
+         src="img/помидор в очках.svg" alt="" aria-hidden="true" />
+
+    <img class="hero__deco hero__deco--right"
+         src="img/лимон в очках.svg" alt="" aria-hidden="true" />
+
+    <img class="hero__deco hero__deco--right2"
+         src="img/перец в очках.svg" alt="" aria-hidden="true" />
+
+    <div class="hero__content">
+      <h1 class="hero__title">Rutis</h1>
+      <p class="hero__subtitle">Набор для выращивания<br />микрозелени кресс-салата с нуля</p>
+      <a class="btn-orange hero__btn" href="#kit">Заказать</a>
     </div>
-  </header>
+
+  </section>
 
   <main>
 
-    <!-- ===== HERO ===== -->
-    <section class="hero" id="about">
+    <!-- ===== ABOUT ===== -->
+    <section class="about" id="about">
       <div class="container">
-        <div class="hero__inner">
-          <div class="hero__content" data-animate>
-            <span class="hero__label">Блог об огородничестве</span>
-            <h1 class="hero__title">
-              Вырасти своё<br /><span>с удовольствием</span>
-            </h1>
-            <p class="hero__desc">
-              Rutis — это про настоящий огород: с землёй под ногтями, солнцем в глаза
-              и урожаем, которым хочется хвастаться. Делимся советами, вдохновением
-              и немного юмором.
-            </p>
-            <div class="hero__actions">
-              <a class="btn-primary" href="#socials">Читать блог</a>
-              <a class="btn-outline" href="#features">Узнать больше</a>
-            </div>
-          </div>
-          <div class="hero__illustration" data-animate>
-            <img src="img/помидор в очках.svg" alt="Помидор в очках — маскот Rutis" />
-          </div>
-        </div>
+        <p class="about__text">
+          <span class="about__orange">Мы создаём живую еду с теми, кто готов отказаться от пластиковой зелени из супермаркетов,</span><br />
+          <span class="about__dark">кто не боится начать свой мини-сад на подоконнике</span><br />
+          <span class="about__dark">и хочет видеть настоящую науку роста каждый день прямо у себя на кухне.</span>
+        </p>
       </div>
     </section>
 
-    <!-- ===== FEATURES ===== -->
-    <section class="features" id="features">
+    <!-- ===== FOR WHOM ===== -->
+    <section class="for-whom" id="for-whom">
       <div class="container">
-        <div class="section-header" data-animate>
-          <span class="section-label">Что мы делаем</span>
-          <h2 class="section-title">Всё для твоего огорода</h2>
-          <p class="section-desc">
-            От первого семечка до урожая — мы рядом с полезным контентом, проверенными
-            советами и хорошим настроением.
-          </p>
+        <h2 class="section-title">Тебе подойдёт если:</h2>
+        <div class="for-whom__row">
+          <article class="pot-card">
+            <span class="pot-card__num">1</span>
+            <div class="pot-card__body">
+              <p class="pot-card__title pot-card__title--orange">«Хочу сделать дом своим»</p>
+              <p class="pot-card__desc">Только переехал и хочешь живое рядом — но боишься, что всё погибнет. Кресс-салат не погибнет: мы проведём за руку шаг за шагом.</p>
+            </div>
+          </article>
+          <article class="pot-card">
+            <span class="pot-card__num">2</span>
+            <div class="pot-card__body">
+              <p class="pot-card__title pot-card__title--green">«Ребёнок хочет питомца»</p>
+              <p class="pot-card__desc">Осязаемый результат, который ребёнок вырастил сам и съел. Лучший педагогический момент — без ветеринаров и шерсти.</p>
+            </div>
+          </article>
+          <article class="pot-card">
+            <span class="pot-card__num">3</span>
+            <div class="pot-card__body">
+              <p class="pot-card__title pot-card__title--green">«Надо что-то живое рядом»</p>
+              <p class="pot-card__desc">Сессия, дедлайны, общага. 10 минут в день — и уже лучше.</p>
+            </div>
+          </article>
         </div>
-        <div class="features__grid">
-          <article class="feature-card" data-animate>
-            <div class="feature-card__icon">
-              <img src="img/ЛЕЙКА.svg" alt="Лейка" />
+
+        <div class="for-whom__row for-whom__row--center">
+          <article class="pot-card">
+            <span class="pot-card__num">4</span>
+            <div class="pot-card__body">
+              <p class="pot-card__title pot-card__title--orange">«Хочу свежую зелень»</p>
+              <p class="pot-card__desc">Срезаешь ровно сколько нужно — прямо с подоконника. Не пучок из магазина, который гниёт на третий день.</p>
             </div>
-            <h3 class="feature-card__title">Уход и полив</h3>
-            <p class="feature-card__text">
-              Разбираемся, как правильно поливать, удобрять и ухаживать за растениями,
-              чтобы они радовали богатым урожаем.
-            </p>
           </article>
-          <article class="feature-card" data-animate>
-            <div class="feature-card__icon">
-              <img src="img/ЛОПАТКА.svg" alt="Лопатка" />
+          <article class="pot-card">
+            <span class="pot-card__num">5</span>
+            <div class="pot-card__body">
+              <p class="pot-card__title pot-card__title--orange">«Хочу заземляющее хобби»</p>
+              <p class="pot-card__desc">Пора выдохнуть. Просто живой зелёный островок посреди твоего хаоса, который растёт сам прямо на подоконнике.</p>
             </div>
-            <h3 class="feature-card__title">Посадка и грунт</h3>
-            <p class="feature-card__text">
-              Рассказываем, когда и как сажать, какой грунт выбрать и почему это важнее,
-              чем кажется на первый взгляд.
-            </p>
-          </article>
-          <article class="feature-card" data-animate>
-            <div class="feature-card__icon">
-              <img src="img/пуливеризатор.svg" alt="Пульверизатор" />
-            </div>
-            <h3 class="feature-card__title">Защита растений</h3>
-            <p class="feature-card__text">
-              Как защитить урожай от вредителей и болезней без лишней химии —
-              делимся проверенными рецептами и лайфхаками.
-            </p>
-          </article>
-          <article class="feature-card" data-animate>
-            <div class="feature-card__icon">
-              <img src="img/лоток.svg" alt="Лоток с рассадой" />
-            </div>
-            <h3 class="feature-card__title">Рассада дома</h3>
-            <p class="feature-card__text">
-              Выращиваем рассаду в квартире: советы по свету, температуре и пикировке,
-              чтобы сеянцы не вытянулись и не погибли.
-            </p>
-          </article>
-          <article class="feature-card" data-animate>
-            <div class="feature-card__icon">
-              <img src="img/ЛОПАТКА-1.svg" alt="Садовый инструмент" />
-            </div>
-            <h3 class="feature-card__title">Сезонные работы</h3>
-            <p class="feature-card__text">
-              Что делать в огороде весной, летом и осенью — ведём сезонный календарь
-              и не даём пропустить нужный момент.
-            </p>
-          </article>
-          <article class="feature-card" data-animate>
-            <div class="feature-card__icon">
-              <img src="img/клубника в очках.svg" alt="Клубника" />
-            </div>
-            <h3 class="feature-card__title">Ягоды и фрукты</h3>
-            <p class="feature-card__text">
-              Клубника, малина, смородина — разбираемся с ягодными культурами: как вырастить
-              и получить максимальный урожай.
-            </p>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- ===== CHARACTERS ===== -->
-    <section class="characters" id="characters">
+    <!-- ===== STEPS ===== -->
+    <section class="steps" id="steps">
       <div class="container">
-        <div class="section-header" data-animate>
-          <span class="section-label">Наши персонажи</span>
-          <h2 class="section-title">Знакомься с командой</h2>
-          <p class="section-desc">
-            Каждый персонаж Rutis — это отдельная история, характер и настроение. Они умные,
-            стильные и очень любят свой огород.
-          </p>
+        <h2 class="section-title">Три шага до урожая</h2>
+        <div class="steps__grid">
+
+          <div class="step">
+            <span class="step__num">1</span>
+            <h3 class="step__title">Получи набор</h3>
+            <p class="step__desc">Только переехал и хочешь живое рядом — но боишься, что всё погибнет. Кресс-салат не погибнет: мы проведём за руку шаг за шагом.</p>
+          </div>
+
+          <div class="step">
+            <span class="step__num">2</span>
+            <h3 class="step__title">Открой веб-приложение</h3>
+            <p class="step__desc">Каждый день — одна короткая задача. Никакого опыта не нужно: следуй шагам и отмечай выполненное.</p>
+          </div>
+
+          <div class="step">
+            <span class="step__num">3</span>
+            <h3 class="step__title">Срежь на 10-й день</h3>
+            <p class="step__desc">Кресс-салат готов. Кинь в яичницу, на тост или в суп. Острый, бодрящий — твой.</p>
+          </div>
+
         </div>
-        <div class="characters__grid">
-          <div class="character-item" data-animate>
-            <img src="img/помидор в очках.svg" alt="Помидор" />
-            <span class="character-item__name">Помидор</span>
-          </div>
-          <div class="character-item" data-animate>
-            <img src="img/клубника в очках.svg" alt="Клубника" />
-            <span class="character-item__name">Клубника</span>
-          </div>
-          <div class="character-item" data-animate>
-            <img src="img/перец в очках.svg" alt="Перец" />
-            <span class="character-item__name">Перец</span>
-          </div>
-          <div class="character-item" data-animate>
-            <img src="img/перчик в очках.svg" alt="Острый перчик" />
-            <span class="character-item__name">Перчик</span>
-          </div>
-          <div class="character-item" data-animate>
-            <img src="img/лук в очках.svg" alt="Лук" />
-            <span class="character-item__name">Лук</span>
-          </div>
-          <div class="character-item" data-animate>
-            <img src="img/лимон в очках.svg" alt="Лимон" />
-            <span class="character-item__name">Лимон</span>
-          </div>
-          <div class="character-item" data-animate>
-            <img src="img/салат в очках.svg" alt="Салат" />
-            <span class="character-item__name">Салат</span>
-          </div>
+        <div class="steps__cta">
+          <a class="btn-orange" href="#kit">Заказать</a>
         </div>
       </div>
     </section>
 
-    <!-- ===== SOCIALS ===== -->
-    <section class="socials" id="socials">
+    <!-- ===== KIT ===== -->
+    <section class="kit" id="kit">
       <div class="container">
-        <div class="section-header" data-animate>
-          <span class="section-label">Наши каналы</span>
-          <h2 class="section-title">Найди нас везде</h2>
-          <p class="section-desc">
-            Подписывайся на удобной платформе — выкладываем контент регулярно
-            и отвечаем на вопросы.
-          </p>
+        <h2 class="section-title">Всё включено — открой и начни</h2>
+        <div class="kit__grid">
+
+          <div class="kit-item">
+            <div class="kit-item__icon">
+              <img src="img/салат в очках.svg" alt="Семена кресс-салата" />
+            </div>
+            <h3 class="kit-item__title">Семена кресс-салата</h3>
+            <p class="kit-item__desc">Сорт Крупнолистовой. Быстро прорастают, насыщенный вкус.</p>
+          </div>
+
+          <div class="kit-item">
+            <div class="kit-item__icon">
+              <img src="img/ЛЕЙКА.svg" alt="Агровата" />
+            </div>
+            <h3 class="kit-item__title">Агровата</h3>
+            <p class="kit-item__desc">Специальный субстрат — держит влагу и пропускает воздух к корням.</p>
+          </div>
+
+          <div class="kit-item">
+            <div class="kit-item__icon">
+              <img src="img/пуливеризатор.svg" alt="Флакон-распылитель" />
+            </div>
+            <h3 class="kit-item__title">Флакон-распылитель</h3>
+            <p class="kit-item__desc">Равномерный полив без риска залить. Всё правильно с первого раза.</p>
+          </div>
+
+          <div class="kit-item">
+            <div class="kit-item__icon">
+              <img src="img/лоток.svg" alt="Плоский лоток" />
+            </div>
+            <h3 class="kit-item__title">Плоский лоток</h3>
+            <p class="kit-item__desc">Компактный, умещается на любом подоконнике. Горшок не нужен.</p>
+          </div>
+
         </div>
-        <div class="socials__grid">
-          <a class="social-card" href="#" target="_blank" rel="noopener noreferrer" data-animate>
-            <div class="social-card__icon">
-              <img src="img/telegram.svg" alt="Telegram" />
+      </div>
+    </section>
+
+    <!-- ===== FAQ ===== -->
+    <section class="faq" id="faq">
+      <div class="container">
+        <h2 class="section-title">FAQ</h2>
+        <div class="faq__list">
+
+          <div class="faq__item faq__item--open">
+            <button class="faq__question" aria-expanded="true">
+              <span>Нужен ли опыт выращивания?</span>
+              <span class="faq__icon" aria-hidden="true"></span>
+            </button>
+            <div class="faq__answer">
+              <p>Нет. Приложение ведёт пошагово каждый день — от посева до срезки. Единственное что нужно — открывать раз в день.</p>
             </div>
-            <div class="social-card__info">
-              <span class="social-card__name">Telegram</span>
-              <span class="social-card__desc">Советы, рецепты, новости сезона</span>
+          </div>
+
+          <div class="faq__item">
+            <button class="faq__question" aria-expanded="false">
+              <span>Сколько времени занимает уход?</span>
+              <span class="faq__icon" aria-hidden="true"></span>
+            </button>
+            <div class="faq__answer">
+              <p>Около 5–10 минут в день. Полив и проверка — и всё. Кресс-салат не требует постоянного внимания.</p>
             </div>
-          </a>
-          <a class="social-card" href="#" target="_blank" rel="noopener noreferrer" data-animate>
-            <div class="social-card__icon">
-              <img src="img/vk.svg" alt="ВКонтакте" />
+          </div>
+
+          <div class="faq__item">
+            <button class="faq__question" aria-expanded="false">
+              <span>Когда будет результат?</span>
+              <span class="faq__icon" aria-hidden="true"></span>
+            </button>
+            <div class="faq__answer">
+              <p>Первые ростки появляются на 3–4 день. Готов к срезке кресс-салат — на 10-й день после посева.</p>
             </div>
-            <div class="social-card__info">
-              <span class="social-card__name">ВКонтакте</span>
-              <span class="social-card__desc">Статьи, обсуждения, сообщество</span>
+          </div>
+
+          <div class="faq__item">
+            <button class="faq__question" aria-expanded="false">
+              <span>Как доставляете?</span>
+              <span class="faq__icon" aria-hidden="true"></span>
+            </button>
+            <div class="faq__answer">
+              <p>Пишем в Telegram или WhatsApp, договариваемся о доставке. Доставка уже включена в стоимость набора.</p>
             </div>
-          </a>
-          <a class="social-card" href="#" target="_blank" rel="noopener noreferrer" data-animate>
-            <div class="social-card__icon">
-              <img src="img/instagram.svg" alt="Instagram" />
+          </div>
+
+          <div class="faq__item">
+            <button class="faq__question" aria-expanded="false">
+              <span>Что если что-то пошло не так?</span>
+              <span class="faq__icon" aria-hidden="true"></span>
+            </button>
+            <div class="faq__answer">
+              <p>Напишите нам — разберёмся вместе. Пришлём новые семена или поможем выяснить причину.</p>
             </div>
-            <div class="social-card__info">
-              <span class="social-card__name">Instagram</span>
-              <span class="social-card__desc">Фото огорода и вдохновение</span>
-            </div>
-          </a>
-          <a class="social-card" href="#" target="_blank" rel="noopener noreferrer" data-animate>
-            <div class="social-card__icon">
-              <img src="img/tiktok.svg" alt="TikTok" />
-            </div>
-            <div class="social-card__info">
-              <span class="social-card__name">TikTok</span>
-              <span class="social-card__desc">Короткие видео и лайфхаки</span>
-            </div>
-          </a>
-          <a class="social-card" href="#" target="_blank" rel="noopener noreferrer" data-animate>
-            <div class="social-card__icon">
-              <img src="img/dzen.svg" alt="Дзен" />
-            </div>
-            <div class="social-card__info">
-              <span class="social-card__name">Дзен</span>
-              <span class="social-card__desc">Длинные статьи и гайды</span>
-            </div>
-          </a>
-          <a class="social-card" href="#" target="_blank" rel="noopener noreferrer" data-animate>
-            <div class="social-card__icon">
-              <img src="img/pinterest.svg" alt="Pinterest" />
-            </div>
-            <div class="social-card__info">
-              <span class="social-card__name">Pinterest</span>
-              <span class="social-card__desc">Визуальные идеи для огорода</span>
-            </div>
-          </a>
+          </div>
+
         </div>
+      </div>
+    </section>
+
+    <!-- ===== FINAL CTA ===== -->
+    <section class="final-cta">
+      <div class="container">
+        <h2 class="section-title">Готов вырастить своё<br />первое растение?</h2>
+        <p class="final-cta__price">990 ₽ · доставка включена · результат за 10 дней</p>
+        <p class="final-cta__desc">Мы только запускаемся и собрали вручную первые 7 наборов для заземления. Хочешь стать одним из первых? Оставь свои контакты в форме ниже. Мы напишем тебе лично в Telegram или WhatsApp, ответим на вопросы и бережно доставим твой мини-сад.</p>
+        <a class="btn-orange" href="#">Заказать</a>
       </div>
     </section>
 
   </main>
 
   <!-- ===== FOOTER ===== -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer__inner">
-        <div class="footer__brand">
-          <a href="#">
-            <img src="img/footer logo.svg" alt="Rutis" class="footer__logo" />
-          </a>
-          <p class="footer__tagline">
-            Огород с характером — выращиваем вместе, делимся с радостью.
-          </p>
-        </div>
-        <div class="footer__links">
-          <div>
-            <p class="footer__nav-title">Разделы</p>
-            <ul class="footer__nav-list">
-              <li><a class="footer__nav-link" href="#about">О проекте</a></li>
-              <li><a class="footer__nav-link" href="#features">Что мы делаем</a></li>
-              <li><a class="footer__nav-link" href="#characters">Персонажи</a></li>
-              <li><a class="footer__nav-link" href="#socials">Каналы</a></li>
-            </ul>
-          </div>
-          <div>
-            <p class="footer__nav-title">Мы в сетях</p>
-            <ul class="footer__nav-list">
-              <li><a class="footer__nav-link" href="#" target="_blank" rel="noopener">Telegram</a></li>
-              <li><a class="footer__nav-link" href="#" target="_blank" rel="noopener">ВКонтакте</a></li>
-              <li><a class="footer__nav-link" href="#" target="_blank" rel="noopener">Instagram</a></li>
-              <li><a class="footer__nav-link" href="#" target="_blank" rel="noopener">TikTok</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div class="footer__bottom">
-        <p class="footer__copy">© 2026 Rutis. Все права защищены.</p>
-        <div class="footer__socials">
-          <a class="footer__social-link" href="#" target="_blank" rel="noopener" aria-label="Telegram">
-            <img src="img/telegram.svg" alt="Telegram" />
-          </a>
-          <a class="footer__social-link" href="#" target="_blank" rel="noopener" aria-label="ВКонтакте">
-            <img src="img/vk.svg" alt="ВКонтакте" />
-          </a>
-          <a class="footer__social-link" href="#" target="_blank" rel="noopener" aria-label="Instagram">
-            <img src="img/instagram.svg" alt="Instagram" />
-          </a>
-          <a class="footer__social-link" href="#" target="_blank" rel="noopener" aria-label="TikTok">
-            <img src="img/tiktok.svg" alt="TikTok" />
-          </a>
-          <a class="footer__social-link" href="#" target="_blank" rel="noopener" aria-label="Дзен">
-            <img src="img/dzen.svg" alt="Дзен" />
-          </a>
-          <a class="footer__social-link" href="#" target="_blank" rel="noopener" aria-label="Pinterest">
-            <img src="img/pinterest.svg" alt="Pinterest" />
-          </a>
-        </div>
-      </div>
+  <footer class="footer" id="footer">
+    <div class="footer__chars" aria-hidden="true">
+      <img class="footer__char footer__char--1" src="img/помидор в очках.svg" alt="" />
+      <img class="footer__char footer__char--2" src="img/перчик в очках.svg" alt="" />
+      <img class="footer__char footer__char--3" src="img/лук в очках.svg" alt="" />
     </div>
+    <div class="footer__title" aria-label="Rutis">Rutis</div>
+    <nav class="footer__socials" aria-label="Социальные сети">
+      <a class="footer__social-link" href="#" target="_blank" rel="noopener" aria-label="TikTok">
+        <img src="img/tiktok.svg" alt="TikTok" />
+      </a>
+      <a class="footer__social-link" href="#" target="_blank" rel="noopener" aria-label="Instagram">
+        <img src="img/instagram.svg" alt="Instagram" />
+      </a>
+      <a class="footer__social-link" href="#" target="_blank" rel="noopener" aria-label="Pinterest">
+        <img src="img/pinterest.svg" alt="Pinterest" />
+      </a>
+      <a class="footer__social-link" href="#" target="_blank" rel="noopener" aria-label="ВКонтакте">
+        <img src="img/vk.svg" alt="ВКонтакте" />
+      </a>
+      <a class="footer__social-link" href="#" target="_blank" rel="noopener" aria-label="Telegram">
+        <img src="img/telegram.svg" alt="Telegram" />
+      </a>
+      <a class="footer__social-link" href="#" target="_blank" rel="noopener" aria-label="Дзен">
+        <img src="img/dzen.svg" alt="Дзен" />
+      </a>
+    </nav>
   </footer>
 
   <script src="js/main.js"></script>

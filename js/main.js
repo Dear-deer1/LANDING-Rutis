@@ -1,23 +1,18 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // Sticky header shadow on scroll
-  const header = document.querySelector('.header');
-  const onScroll = () => {
-    header.classList.toggle('header--scrolled', window.scrollY > 0);
-  };
-  window.addEventListener('scroll', onScroll, { passive: true });
+  document.querySelectorAll('.faq__question').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.faq__item');
+      const isOpen = item.classList.contains('faq__item--open');
 
-  // Animate elements into view
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
-          observer.unobserve(entry.target);
-        }
+      document.querySelectorAll('.faq__item--open').forEach((el) => {
+        el.classList.remove('faq__item--open');
+        el.querySelector('.faq__question').setAttribute('aria-expanded', 'false');
       });
-    },
-    { threshold: 0.1 }
-  );
 
-  document.querySelectorAll('[data-animate]').forEach((el) => observer.observe(el));
+      if (!isOpen) {
+        item.classList.add('faq__item--open');
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
 });
