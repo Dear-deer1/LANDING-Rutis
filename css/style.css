@@ -882,14 +882,36 @@ body {
 
   .hero { min-height: 100svh; }
 
-  /* Персонажи на узких экранах */
-  .hero__char--tomato  { width: clamp(120px, 30vw, 200px); top: 24%; }
-  .hero__char--chili   { width: clamp(100px, 26vw, 180px); top: 56%; }
-  .hero__char--onion   { width: clamp(200px, 52vw, 360px); right: -20px; top: auto; bottom: 0; }
-  .hero__char--lemon   { left: 58%; top: 32%; width: clamp(50px, 10vw, 80px); }
-  .hero__char--strawberry { top: 50%; }
+  /* Персонажи на мобиле */
+  .hero__char--lemon,
+  .hero__char--strawberry { display: none; }
+
+  .hero__char--tomato {
+    width: 48vw;
+    top: 8%;
+    left: -10px;
+  }
+
+  .hero__char--chili {
+    width: 40vw;
+    top: 64%;
+    left: -8px;
+  }
+
+  .hero__char--onion {
+    width: 80vw;
+    right: -30px;
+    top: 28%;
+    bottom: auto;
+    z-index: 0;
+  }
 
   .about { padding: 48px 0; }
+
+  .about__deco--ley {
+    width: clamp(90px, 28vw, 140px);
+    filter: hue-rotate(34deg) brightness(1.1);
+  }
   .for-whom { padding: 40px 0 60px; }
   .steps { padding: 60px 0; }
   .kit { padding: 60px 0; }
@@ -914,6 +936,9 @@ body {
   /* kit: 2 колонки на мобиле */
   .kit-item { flex: 0 0 calc(50% - 12px); }
   .kit-item__icon { min-height: 120px; }
+  .kit-item--icon-top .kit-item__title,
+  .kit-item--icon-top .kit-item__desc { text-align: left; }
+  .kit-item--icon-top .kit-item__icon { justify-content: flex-start; }
 
   .steps__grid { flex-wrap: wrap; gap: 28px; }
   .steps__arrow { display: none; }
