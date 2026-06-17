@@ -544,7 +544,7 @@ body {
 
 .kit-item--icon-top .kit-item__title,
 .kit-item--icon-top .kit-item__desc {
-  text-align: center;
+  text-align: left;
 }
 
 /* Анимации дергания для иконок */
@@ -762,7 +762,7 @@ body {
 /* ===== FINAL CTA ===== */
 .final-cta {
   padding: 80px 0;
-  text-align: center;
+  text-align: left;
 }
 
 .final-cta .section-title {
@@ -782,7 +782,7 @@ body {
   color: var(--c-dark);
   line-height: 1.05;
   max-width: 550px;
-  margin: 0 auto 28px;
+  margin: 0 0 28px;
 }
 
 /* ===== FOOTER ===== */
