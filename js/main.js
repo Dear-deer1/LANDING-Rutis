@@ -23,6 +23,19 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  /* ── Pot cards: вылезание картинок по тапу на мобиле ── */
+  if (window.matchMedia('(hover: none)').matches) {
+    document.querySelectorAll('.pot-card-wrap').forEach((wrap) => {
+      wrap.addEventListener('click', () => {
+        const isActive = wrap.classList.contains('pot-card-wrap--active');
+        document.querySelectorAll('.pot-card-wrap--active').forEach((w) => {
+          w.classList.remove('pot-card-wrap--active');
+        });
+        if (!isActive) wrap.classList.add('pot-card-wrap--active');
+      });
+    });
+  }
+
   /* ── FAQ accordion ── */
   document.querySelectorAll('.faq__question').forEach((btn) => {
     btn.addEventListener('click', () => {
