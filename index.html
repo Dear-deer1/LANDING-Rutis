@@ -5,7 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Rutis — Набор для выращивания микрозелени</title>
   <link rel="icon" type="image/svg+xml" href="img/favicon.svg" />
-  <link rel="preload" href="fonts/TT Fors Trial Variable.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="fonts/TT Fors Trial Variable.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+  <script>document.documentElement.classList.add('js')</script>
   <link rel="stylesheet" href="css/reset.css" />
   <link rel="stylesheet" href="css/animations.css" />
   <link rel="stylesheet" href="css/style.css" />
@@ -15,8 +16,11 @@
   <!-- ===== HERO ===== -->
   <section class="hero">
 
-    <nav class="nav">
-      <ul class="nav__list">
+    <nav class="nav" id="main-nav">
+      <button class="nav__burger" aria-label="Открыть меню" aria-expanded="false" aria-controls="nav-list">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav__list" id="nav-list">
         <li><a class="nav__link" href="#about">О нас</a></li>
         <li><a class="nav__link" href="#for-whom">Кому подойдёт</a></li>
         <li><a class="nav__link" href="#kit">Что в наборе</a></li>

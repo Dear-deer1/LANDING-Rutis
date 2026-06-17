@@ -1,5 +1,28 @@
 document.addEventListener('DOMContentLoaded', () => {
 
+  /* ── Burger menu ── */
+  const nav    = document.getElementById('main-nav');
+  const burger = nav && nav.querySelector('.nav__burger');
+
+  if (burger) {
+    const toggle = (force) => {
+      const isOpen = force !== undefined ? force : !nav.classList.contains('nav--open');
+      nav.classList.toggle('nav--open', isOpen);
+      burger.setAttribute('aria-expanded', String(isOpen));
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    };
+
+    burger.addEventListener('click', () => toggle());
+
+    nav.querySelectorAll('.nav__link').forEach((link) => {
+      link.addEventListener('click', () => toggle(false));
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') toggle(false);
+    });
+  }
+
   /* ── FAQ accordion ── */
   document.querySelectorAll('.faq__question').forEach((btn) => {
     btn.addEventListener('click', () => {
