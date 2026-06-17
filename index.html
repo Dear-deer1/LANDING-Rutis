@@ -56,14 +56,16 @@
 
     <!-- ===== FOR WHOM ===== -->
     <section class="for-whom" id="for-whom">
-
-      <img class="for-whom__luk" src="img/лук в очках.svg" alt="" aria-hidden="true" />
-
       <div class="container">
         <h2 class="section-title">Тебе подойдёт если:</h2>
 
-        <div class="for-whom__row">
+        <!--
+          Ряд 1: [горшок 1] [пусто] [горшок 2] [горшок 3]
+          Ряд 2: [лук]      [горшок 4] [пусто] [горшок 5]
+        -->
+        <div class="for-whom__grid">
 
+          <!-- ── Ряд 1 ── -->
           <div class="pot-card-wrap">
             <img class="pot-card__char" src="img/лимон в очках.svg" alt="" aria-hidden="true" />
             <article class="pot-card">
@@ -74,6 +76,8 @@
               <p class="pot-card__desc">Только переехал и хочешь живое рядом — но боишься, что всё погибнет. Кресс-салат не погибнет: мы проведём за руку шаг за шагом.</p>
             </article>
           </div>
+
+          <div class="for-whom__spacer" aria-hidden="true"></div>
 
           <div class="pot-card-wrap">
             <article class="pot-card">
@@ -96,9 +100,10 @@
             </article>
           </div>
 
-        </div>
-
-        <div class="for-whom__row for-whom__row--center">
+          <!-- ── Ряд 2 ── -->
+          <div class="for-whom__luk-cell" aria-hidden="true">
+            <img class="for-whom__luk-img" src="img/лук в очках.svg" alt="" />
+          </div>
 
           <div class="pot-card-wrap">
             <img class="pot-card__char" src="img/клубника в очках.svg" alt="" aria-hidden="true" />
@@ -110,6 +115,8 @@
               <p class="pot-card__desc">Срезаешь ровно сколько нужно — прямо с подоконника. Не пучок из магазина, который гниёт на третий день.</p>
             </article>
           </div>
+
+          <div class="for-whom__spacer" aria-hidden="true"></div>
 
           <div class="pot-card-wrap">
             <article class="pot-card">
@@ -277,8 +284,11 @@
       <a class="footer__social-link" href="#" target="_blank" rel="noopener" aria-label="TikTok">
         <img src="img/tiktok.svg" alt="TikTok" />
       </a>
-<a class="footer__social-link" href="#" target="_blank" rel="noopener" aria-label="Pinterest">
+      <a class="footer__social-link" href="#" target="_blank" rel="noopener" aria-label="Pinterest">
         <img src="img/pinterest.svg" alt="Pinterest" />
+      </a>
+      <a class="footer__social-link" href="#" target="_blank" rel="noopener" aria-label="Instagram">
+        <img src="img/instagram.svg" alt="Instagram" />
       </a>
       <a class="footer__social-link" href="#" target="_blank" rel="noopener" aria-label="ВКонтакте">
         <img src="img/vk.svg" alt="ВКонтакте" />

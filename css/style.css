@@ -157,10 +157,10 @@ body {
   transform: rotate(-11deg);
 }
 
-/* Перчик чили — левая сторона, ВЫШЕ помидора, очень большой */
+/* Перчик чили — левая сторона, НИЖЕ помидора */
 .hero__char--chili {
   left: -10px;
-  top: 2%;
+  top: 54%;
   width: clamp(160px, 22vw, 340px);
   transform: rotate(5deg);
   z-index: 2;
@@ -175,20 +175,20 @@ body {
   /* z-index: 1 (default) — прячется за hero__content z-index:2 */
 }
 
-/* Клубника — на логотипе, впереди */
+/* Клубника — на логотипе, чуть левее центра, впереди */
 .hero__char--strawberry {
-  left: 50%;
+  left: 43%;
   top: 47%;
   width: clamp(40px, 5vw, 70px);
   transform: translateX(-50%) rotate(-12deg);
   z-index: 3;
 }
 
-/* Лук — огромный, правая сторона */
+/* Лук — большой, правая сторона, не выходит за экран */
 .hero__char--onion {
-  right: -30px;
+  right: -20px;
   top: 0%;
-  width: clamp(300px, 44vw, 680px);
+  width: clamp(220px, 34vw, 520px);
   transform: rotate(-3deg);
 }
 
@@ -232,14 +232,14 @@ body {
 
 .about__deco--lop {
   left: clamp(-30px, -1vw, 0px);
-  top: 50%;
+  top: 22%;
   transform: translateY(-50%) rotate(10deg);
   width: clamp(80px, 11vw, 155px);
 }
 
 .about__deco--ley {
   right: clamp(-20px, -1vw, 10px);
-  top: 50%;
+  top: 22%;
   transform: translateY(-45%) rotate(14deg);
   width: clamp(130px, 19vw, 270px);
 }
@@ -256,42 +256,52 @@ body {
 
 /* ===== FOR WHOM ===== */
 .for-whom {
-  padding: 60px 0 100px;
-  position: relative;
-}
-
-/* Spinning leek under card 1 */
-.for-whom__luk {
-  position: absolute;
-  left: calc(var(--px) - 20px);
-  bottom: 70px;
-  width: clamp(80px, 10vw, 140px);
-  pointer-events: none;
-  z-index: 0;
-  animation: luk-spin 5s linear infinite;
+  padding: 60px 0 80px;
 }
 
 @keyframes luk-spin {
   to { transform: rotate(360deg); }
 }
 
-.for-whom__row {
+/* 4-колоночная сетка на флексбоксе */
+.for-whom__grid {
   display: flex;
   flex-wrap: wrap;
   gap: 16px;
-  margin-bottom: 16px;
-  position: relative;
-  z-index: 1;
 }
 
-.for-whom__row--center {
+/* Все 4 типа ячеек одинаковой ширины: (100% - 3×16px) / 4 = 25% - 12px */
+.for-whom__grid > .pot-card-wrap,
+.for-whom__spacer,
+.for-whom__luk-cell {
+  flex: 0 0 calc(25% - 12px);
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+/* Пустой блок-распорка */
+.for-whom__spacer {
+  /* intentionally empty */
+}
+
+/* Ячейка с луком в ряду 2 */
+.for-whom__luk-cell {
+  display: flex;
+  align-items: center;
   justify-content: center;
+  padding-top: 64px;
+}
+
+.for-whom__luk-img {
+  width: 85%;
+  height: auto;
+  object-fit: contain;
+  animation: luk-spin 5s linear infinite;
+  pointer-events: none;
 }
 
 /* ── Card wrapper: holds char + pot ── */
 .pot-card-wrap {
-  flex: 1 1 240px;
-  max-width: 360px;
   position: relative;
   padding-top: 64px; /* space for peeking character */
 }
@@ -330,12 +340,14 @@ body {
   box-sizing: border-box;
 }
 
-/* Rim: number + title side by side */
+/* Rim: number + title, центр */
 .pot-card__rim {
   display: flex;
   align-items: flex-start;
+  justify-content: center;
   gap: 10px;
   padding: 16px 18px 8px;
+  text-align: center;
 }
 
 .pot-card__num {
@@ -351,6 +363,7 @@ body {
   font-weight: 600;
   line-height: 1.2;
   padding-top: 4px;
+  text-align: left;
 }
 
 .pot-card__title--orange { color: var(--c-orange); }
@@ -667,10 +680,13 @@ body {
 
   .nav__link { font-size: 15px; }
 
-  .pot-card {
-    max-width: none;
-    flex: 1 1 200px;
+  /* 2 колонки на планшете */
+  .for-whom__grid > .pot-card-wrap,
+  .for-whom__spacer,
+  .for-whom__luk-cell {
+    flex: 0 0 calc(50% - 8px);
   }
+  .for-whom__spacer { display: none; }
 }
 
 @media (max-width: 600px) {
@@ -682,7 +698,7 @@ body {
 
   /* Персонажи на узких экранах */
   .hero__char--tomato  { width: clamp(120px, 30vw, 200px); top: 24%; }
-  .hero__char--chili   { width: clamp(100px, 26vw, 180px); top: 3%; }
+  .hero__char--chili   { width: clamp(100px, 26vw, 180px); top: 56%; }
   .hero__char--onion   { width: clamp(180px, 44vw, 320px); }
   .hero__char--lemon   { left: 58%; top: 32%; width: clamp(50px, 10vw, 80px); }
   .hero__char--strawberry { top: 50%; }
@@ -698,15 +714,14 @@ body {
   .faq__question > span:first-child { font-size: 16px; }
   .faq__answer { padding: 0 20px 24px; }
 
-  .for-whom__row {
-    flex-direction: column;
-    align-items: center;
+  /* 1 колонка на мобиле */
+  .for-whom__grid > .pot-card-wrap,
+  .for-whom__luk-cell {
+    flex: 0 0 100%;
   }
+  .for-whom__spacer { display: none; }
 
   .pot-card {
-    flex: 1 1 auto;
-    width: 100%;
-    max-width: 360px;
     min-height: 300px;
   }
 
