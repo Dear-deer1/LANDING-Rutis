@@ -277,6 +277,8 @@ body {
   animation: water-pour 4.5s ease-in-out infinite;
 }
 
+.about__deco--ley--mobile { display: none; }
+
 /* ===== SECTION TITLE ===== */
 .section-title {
   font-size: clamp(28px, 4.2vw, 54px);
@@ -769,6 +771,13 @@ body {
   margin-bottom: 20px;
 }
 
+/* Центрированный блок с левым выравниванием текста */
+.final-cta__content {
+  max-width: 550px;
+  margin: 0 auto;
+  text-align: left;
+}
+
 .final-cta__price {
   font-size: 18px;
   font-weight: 600;
@@ -781,7 +790,6 @@ body {
   font-weight: 400;
   color: var(--c-dark);
   line-height: 1.05;
-  max-width: 550px;
   margin: 0 0 28px;
 }
 
@@ -982,8 +990,8 @@ body {
   }
 
   .hero__char--onion {
-    width: 84vw;
-    right: -50px;
+    width: 88vw;
+    right: -90px;
     top: 42%;
     bottom: auto;
     z-index: 0;
@@ -991,17 +999,18 @@ body {
 
   .about { padding: 48px 0; }
 
-  .about__deco--ley {
+  .about__deco--ley--desktop { display: none; }
+  .about__deco--ley--mobile {
+    display: block;
     width: clamp(90px, 28vw, 140px);
-    filter: hue-rotate(32deg) brightness(1.07) saturate(0.96);
   }
   .for-whom { padding: 40px 0 60px; }
   .steps { padding: 60px 0; }
   .kit { padding: 60px 0; }
   .faq { padding: 60px 0; }
-  .final-cta { padding: 60px 0; text-align: left; }
-  .final-cta .section-title { text-align: left; }
-  .final-cta__desc { margin-left: 0; }
+  .final-cta { padding: 60px 0; }
+  .final-cta .section-title { text-align: center; }
+  .final-cta__content { margin: 0; }
 
   .faq__question { padding: 20px; }
   .faq__question > span:first-child { font-size: 16px; }
@@ -1031,11 +1040,16 @@ body {
 
   .step__title { color: var(--c-dark); }
 
+  .steps .container {
+    position: relative;
+    z-index: 1;
+  }
+
   .steps__lop {
     display: block;
     position: absolute;
     right: -24px;
-    bottom: 60px;
+    bottom: 140px;
     width: 58vw;
     pointer-events: none;
     z-index: 0;
