@@ -142,54 +142,42 @@ body {
 }
 
 /* ── Vegetable characters ── */
-/* Анимация вращения (обычные персонажи) */
-@keyframes hero-char-spin {
-  from { transform: rotate(var(--char-rot)); }
-  to   { transform: rotate(calc(var(--char-rot) + 360deg)); }
-}
-/* Клубника — при вращении нужен translateX, отдельный keyframe */
-@keyframes hero-char-spin-tx {
-  from { transform: translateX(-50%) rotate(var(--char-rot)); }
-  to   { transform: translateX(-50%) rotate(calc(var(--char-rot) + 360deg)); }
-}
-
 .hero__char {
   position: absolute;
   pointer-events: auto;
   z-index: 1;
   object-fit: contain;
-  transition: scale 0.3s ease;
+  transition: scale 0.25s ease;
 }
 
-/* Помидор — левая сторона, крупный */
+/* Помидор */
 .hero__char--tomato {
   left: -15px;
   top: 22%;
   width: clamp(200px, 25vw, 380px);
-  --char-rot: -11deg;
-  animation: hero-char-spin 10s linear infinite;
+  animation: jolt-tomato 4.5s ease-in-out infinite;
 }
 
-/* Перчик чили — левая сторона, НИЖЕ помидора */
+/* Перчик чили */
 .hero__char--chili {
   left: -10px;
   top: 54%;
   width: clamp(160px, 22vw, 340px);
   z-index: 2;
-  --char-rot: 5deg;
-  animation: hero-char-spin 9s linear infinite;
+  animation: jolt-chili 3.2s ease-in-out infinite;
+  animation-delay: -1.1s;
 }
 
-/* Лимон — за логотипом, правее центра, чуть сверху */
+/* Лимон — против часовой, быстрее */
 .hero__char--lemon {
   left: 64%;
   top: 30%;
   width: clamp(70px, 9vw, 135px);
   --char-rot: -25deg;
-  animation: hero-char-spin 7s linear infinite;
+  animation: hero-char-spin-ccw 3.5s linear infinite;
 }
 
-/* Клубника — на логотипе, чуть левее центра, впереди */
+/* Клубника */
 .hero__char--strawberry {
   left: 43%;
   top: 47%;
@@ -199,24 +187,29 @@ body {
   animation: hero-char-spin-tx 6s linear infinite;
 }
 
-/* Лук — большой, правее, ниже логотипа */
+/* Лук — прибит к низу hero, вверх не выступает, не срезается */
 .hero__char--onion {
   right: -60px;
-  top: 38%;
+  bottom: 0;
+  top: auto;
   width: clamp(320px, 46vw, 720px);
-  --char-rot: -3deg;
-  animation: hero-char-spin 14s linear infinite;
+  animation: jolt-onion 6s ease-in-out infinite;
+  animation-delay: -2.3s;
 }
 
-/* При наведении — стоп + увеличение (чили, лимон, клубника) */
+/* Наведение: стоп + увеличение (чили, клубника) */
 .hero__char--chili:hover,
-.hero__char--lemon:hover,
 .hero__char--strawberry:hover {
   animation-play-state: paused;
   scale: 1.18;
 }
 
-/* При наведении — стоп + уменьшение (помидор, лук) */
+/* Лимон: не останавливается, только увеличивается */
+.hero__char--lemon:hover {
+  scale: 1.18;
+}
+
+/* Наведение: стоп + уменьшение (помидор, лук) */
 .hero__char--tomato:hover,
 .hero__char--onion:hover {
   animation-play-state: paused;
@@ -270,15 +263,16 @@ body {
 .about__deco--lop {
   left: clamp(-30px, -1vw, 0px);
   top: 30%;
-  transform: translateY(-50%) rotate(10deg);
   width: clamp(80px, 11vw, 155px);
+  animation: shovel-dig 3.8s ease-in-out infinite;
+  animation-delay: -0.6s;
 }
 
 .about__deco--ley {
   right: clamp(-20px, -1vw, 10px);
   top: 22%;
-  transform: translateY(-45%) rotate(14deg);
   width: clamp(180px, 26vw, 360px);
+  animation: water-pour 4.5s ease-in-out infinite;
 }
 
 /* ===== SECTION TITLE ===== */
@@ -294,10 +288,6 @@ body {
 /* ===== FOR WHOM ===== */
 .for-whom {
   padding: 60px 0 80px;
-}
-
-@keyframes luk-spin {
-  to { transform: rotate(360deg); }
 }
 
 /* 4-колоночная сетка на флексбоксе */
@@ -425,36 +415,72 @@ body {
   overflow: hidden;
 }
 
+/* Зелёный фон — изначально уехал влево, въезжает по скроллу */
 .steps::before {
   content: '';
   position: absolute;
   inset: -120px -300px;
   background: var(--c-green);
-  transform: rotate(6deg);
   z-index: -1;
+  transform: translateX(-105%) rotate(6deg);
+  transition: transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.steps.steps--revealed::before {
+  transform: translateX(0) rotate(6deg);
 }
 
 .steps__grid {
   display: flex;
-  flex-wrap: wrap;
-  gap: 32px;
+  flex-wrap: nowrap;
+  gap: 0;
   margin-bottom: 48px;
+  align-items: flex-start;
 }
 
 .step {
-  flex: 1 1 220px;
+  flex: 1 1 0;
+  min-width: 0;
   display: flex;
   flex-direction: column;
 }
 
-.step__num {
-  font-size: 54px;
-  font-weight: 600;
-  line-height: 1;
-  color: var(--c-dark);
-  opacity: 0.25;
-  display: block;
-  margin-bottom: 10px;
+/* Стрелка между шагами */
+.steps__arrow {
+  flex: 0 0 56px;
+  display: flex;
+  align-items: flex-start;
+  padding-top: 0;
+  position: relative;
+  height: 20px;
+  margin-top: 0;
+  align-self: flex-start;
+}
+
+/* Линия */
+.steps__arrow::before {
+  content: '';
+  position: absolute;
+  top: 9px;
+  left: 4px;
+  right: 18px;
+  height: 1.5px;
+  background: var(--c-dark);
+  opacity: 0.35;
+}
+
+/* Наконечник */
+.steps__arrow::after {
+  content: '';
+  position: absolute;
+  top: 3px;
+  right: 4px;
+  width: 11px;
+  height: 11px;
+  border-top: 1.5px solid var(--c-dark);
+  border-right: 1.5px solid var(--c-dark);
+  transform: rotate(45deg);
+  opacity: 0.35;
 }
 
 .step__title {
@@ -489,36 +515,46 @@ body {
 .kit__grid {
   display: flex;
   flex-wrap: wrap;
-  gap: 32px;
+  gap: 20px;
+  align-items: stretch;
 }
 
+/* 4 равные колонки: (100% - 3×20px) / 4 */
 .kit-item {
-  flex: 1 1 200px;
+  flex: 0 0 calc(25% - 15px);
+  min-width: 0;
   display: flex;
   flex-direction: column;
 }
 
+/* Иконка занимает всё оставшееся место в колонке */
 .kit-item__icon {
-  width: 160px;
-  height: 160px;
+  flex: 1;
   display: flex;
   align-items: flex-end;
   justify-content: flex-start;
-  margin-bottom: 16px;
-  flex-shrink: 0;
+  min-height: 180px;
+  margin-top: 24px;
 }
 
 .kit-item__icon img {
-  max-width: 100%;
-  max-height: 100%;
+  width: 100%;
+  height: auto;
   object-fit: contain;
+}
+
+/* Семена: иконка сверху — выравниваем её по верхнему краю */
+.kit-item--icon-top .kit-item__icon {
+  align-items: flex-start;
+  margin-top: 0;
+  margin-bottom: 24px;
 }
 
 .kit-item__title {
   font-size: 18px;
   font-weight: 600;
   color: var(--c-dark);
-  margin-bottom: 8px;
+  margin-bottom: 10px;
   line-height: 1.05;
 }
 
@@ -736,7 +772,7 @@ body {
   /* Персонажи на узких экранах */
   .hero__char--tomato  { width: clamp(120px, 30vw, 200px); top: 24%; }
   .hero__char--chili   { width: clamp(100px, 26vw, 180px); top: 56%; }
-  .hero__char--onion   { width: clamp(200px, 52vw, 360px); right: -20px; top: 42%; }
+  .hero__char--onion   { width: clamp(200px, 52vw, 360px); right: -20px; top: auto; bottom: 0; }
   .hero__char--lemon   { left: 58%; top: 32%; width: clamp(50px, 10vw, 80px); }
   .hero__char--strawberry { top: 50%; }
 
@@ -762,10 +798,13 @@ body {
     min-height: 300px;
   }
 
-  .kit__grid { gap: 24px; }
-  .kit-item__icon { width: 100px; height: 100px; }
+  /* kit: 2 колонки на мобиле */
+  .kit-item { flex: 0 0 calc(50% - 12px); }
+  .kit-item__icon { min-height: 120px; }
 
-  .steps__grid { flex-direction: column; gap: 28px; }
+  .steps__grid { flex-wrap: wrap; gap: 28px; }
+  .steps__arrow { display: none; }
+  .step { flex: 0 0 100%; }
 
   .footer { min-height: 360px; }
   .footer__socials { gap: 20px; }

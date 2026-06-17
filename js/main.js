@@ -18,6 +18,23 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  /* ── Steps green background slide-in on scroll ── */
+  const steps = document.querySelector('.steps');
+  if (steps) {
+    const stepsObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            steps.classList.add('steps--revealed');
+            stepsObserver.unobserve(steps);
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
+    stepsObserver.observe(steps);
+  }
+
   /* ── About text colour reveal on scroll ── */
   const about = document.querySelector('.about');
   if (about) {

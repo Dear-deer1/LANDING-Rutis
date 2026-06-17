@@ -7,6 +7,7 @@
   <link rel="icon" type="image/svg+xml" href="img/favicon.svg" />
   <link rel="preload" href="fonts/TT Fors Trial Variable.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="css/reset.css" />
+  <link rel="stylesheet" href="css/animations.css" />
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
@@ -65,15 +66,15 @@
         -->
         <div class="for-whom__grid">
 
-          <!-- ── Ряд 1 ── -->
+          <!-- ── Ряд 1: [горшок 1] [пусто] [горшок 2] [горшок 3] ── -->
           <div class="pot-card-wrap">
             <img class="pot-card__char" src="img/лимон в очках.svg" alt="" aria-hidden="true" />
             <article class="pot-card">
-              <div class="pot-card__rim">
-                <span class="pot-card__num">1</span>
+              <div class="pot-card__content">
                 <p class="pot-card__title pot-card__title--orange">«Хочу сделать дом своим»</p>
+                <p class="pot-card__desc">Только переехал и хочешь живое рядом — но боишься, что всё погибнет. Кресс-салат не погибнет: мы проведём за руку шаг за шагом.</p>
               </div>
-              <p class="pot-card__desc">Только переехал и хочешь живое рядом — но боишься, что всё погибнет. Кресс-салат не погибнет: мы проведём за руку шаг за шагом.</p>
+              <span class="pot-card__num">1</span>
             </article>
           </div>
 
@@ -81,26 +82,26 @@
 
           <div class="pot-card-wrap">
             <article class="pot-card">
-              <div class="pot-card__rim">
-                <span class="pot-card__num">2</span>
+              <div class="pot-card__content">
                 <p class="pot-card__title pot-card__title--green">«Ребёнок хочет питомца»</p>
+                <p class="pot-card__desc">Осязаемый результат, который ребёнок вырастил сам и съел. Лучший педагогический момент — без ветеринаров и шерсти.</p>
               </div>
-              <p class="pot-card__desc">Осязаемый результат, который ребёнок вырастил сам и съел. Лучший педагогический момент — без ветеринаров и шерсти.</p>
+              <span class="pot-card__num">2</span>
             </article>
           </div>
 
           <div class="pot-card-wrap">
             <img class="pot-card__char" src="img/перец в очках.svg" alt="" aria-hidden="true" />
             <article class="pot-card">
-              <div class="pot-card__rim">
-                <span class="pot-card__num">3</span>
+              <div class="pot-card__content">
                 <p class="pot-card__title pot-card__title--green">«Надо что-то живое рядом»</p>
+                <p class="pot-card__desc">Сессия, дедлайны, общага. 10 минут в день — и уже лучше.</p>
               </div>
-              <p class="pot-card__desc">Сессия, дедлайны, общага. 10 минут в день — и уже лучше.</p>
+              <span class="pot-card__num">3</span>
             </article>
           </div>
 
-          <!-- ── Ряд 2 ── -->
+          <!-- ── Ряд 2: [лук] [горшок 4] [пусто] [горшок 5] ── -->
           <div class="for-whom__luk-cell" aria-hidden="true">
             <img class="for-whom__luk-img" src="img/лук в очках.svg" alt="" />
           </div>
@@ -108,11 +109,11 @@
           <div class="pot-card-wrap">
             <img class="pot-card__char" src="img/клубника в очках.svg" alt="" aria-hidden="true" />
             <article class="pot-card">
-              <div class="pot-card__rim">
-                <span class="pot-card__num">4</span>
+              <div class="pot-card__content">
                 <p class="pot-card__title pot-card__title--orange">«Хочу свежую зелень»</p>
+                <p class="pot-card__desc">Срезаешь ровно сколько нужно — прямо с подоконника. Не пучок из магазина, который гниёт на третий день.</p>
               </div>
-              <p class="pot-card__desc">Срезаешь ровно сколько нужно — прямо с подоконника. Не пучок из магазина, который гниёт на третий день.</p>
+              <span class="pot-card__num">4</span>
             </article>
           </div>
 
@@ -120,11 +121,11 @@
 
           <div class="pot-card-wrap">
             <article class="pot-card">
-              <div class="pot-card__rim">
-                <span class="pot-card__num">5</span>
+              <div class="pot-card__content">
                 <p class="pot-card__title pot-card__title--orange">«Хочу заземляющее хобби»</p>
+                <p class="pot-card__desc">Пора выдохнуть. Просто живой зелёный островок посреди твоего хаоса, который растёт сам прямо на подоконнике.</p>
               </div>
-              <p class="pot-card__desc">Пора выдохнуть. Просто живой зелёный островок посреди твоего хаоса, который растёт сам прямо на подоконнике.</p>
+              <span class="pot-card__num">5</span>
             </article>
           </div>
 
@@ -139,19 +140,20 @@
         <div class="steps__grid">
 
           <div class="step">
-            <span class="step__num">1</span>
             <h3 class="step__title">Получи набор</h3>
             <p class="step__desc">Только переехал и хочешь живое рядом — но боишься, что всё погибнет. Кресс-салат не погибнет: мы проведём за руку шаг за шагом.</p>
           </div>
 
+          <div class="steps__arrow" aria-hidden="true"></div>
+
           <div class="step">
-            <span class="step__num">2</span>
             <h3 class="step__title">Открой веб-приложение</h3>
             <p class="step__desc">Каждый день — одна короткая задача. Никакого опыта не нужно: следуй шагам и отмечай выполненное.</p>
           </div>
 
+          <div class="steps__arrow" aria-hidden="true"></div>
+
           <div class="step">
-            <span class="step__num">3</span>
             <h3 class="step__title">Срежь на 10-й день</h3>
             <p class="step__desc">Кресс-салат готов. Кинь в яичницу, на тост или в суп. Острый, бодрящий — твой.</p>
           </div>
@@ -169,36 +171,40 @@
         <h2 class="section-title">Всё включено — открой и начни</h2>
         <div class="kit__grid">
 
-          <div class="kit-item">
+          <!-- Семена: иконка сверху, текст снизу -->
+          <div class="kit-item kit-item--icon-top">
             <div class="kit-item__icon">
-              <img src="img/салат в очках.svg" loading="lazy" alt="Семена кресс-салата" />
+              <img src="img/салат в очках.svg" loading="lazy" alt="" aria-hidden="true" />
             </div>
             <h3 class="kit-item__title">Семена кресс-салата</h3>
             <p class="kit-item__desc">Сорт Крупнолистовой. Быстро прорастают, насыщенный вкус.</p>
           </div>
 
+          <!-- Агровата: текст сверху, жёлтая лопатка снизу -->
           <div class="kit-item">
-            <div class="kit-item__icon">
-              <img src="img/ЛЕЙКА.svg" loading="lazy" alt="Агровата" />
-            </div>
             <h3 class="kit-item__title">Агровата</h3>
             <p class="kit-item__desc">Специальный субстрат — держит влагу и пропускает воздух к корням.</p>
+            <div class="kit-item__icon">
+              <img src="img/жёлтая лопатка.svg" loading="lazy" alt="" aria-hidden="true" />
+            </div>
           </div>
 
+          <!-- Флакон: текст сверху, флакон снизу -->
           <div class="kit-item">
-            <div class="kit-item__icon">
-              <img src="img/пуливеризатор.svg" loading="lazy" alt="Флакон-распылитель" />
-            </div>
             <h3 class="kit-item__title">Флакон-распылитель</h3>
             <p class="kit-item__desc">Равномерный полив без риска залить. Всё правильно с первого раза.</p>
+            <div class="kit-item__icon">
+              <img src="img/пуливеризатор.svg" loading="lazy" alt="" aria-hidden="true" />
+            </div>
           </div>
 
+          <!-- Лоток: текст сверху, лоток снизу -->
           <div class="kit-item">
-            <div class="kit-item__icon">
-              <img src="img/лоток.svg" loading="lazy" alt="Плоский лоток" />
-            </div>
             <h3 class="kit-item__title">Плоский лоток</h3>
             <p class="kit-item__desc">Компактный, умещается на любом подоконнике. Горшок не нужен.</p>
+            <div class="kit-item__icon">
+              <img src="img/лоток.svg" loading="lazy" alt="" aria-hidden="true" />
+            </div>
           </div>
 
         </div>
