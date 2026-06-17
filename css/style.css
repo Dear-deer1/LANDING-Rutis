@@ -967,8 +967,12 @@ body {
   }
 
   .nav__link {
-    font-size: 22px;
-    padding: 14px 32px;
+    font-size: clamp(28px, 7vw, 48px);
+    font-weight: 600;
+    padding: 10px 24px;
+    text-align: center;
+    justify-content: center;
+    width: 100%;
   }
 
   .hero { min-height: 100svh; }
