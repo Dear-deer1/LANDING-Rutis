@@ -1,4 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
+
+  /* ── FAQ accordion ── */
   document.querySelectorAll('.faq__question').forEach((btn) => {
     btn.addEventListener('click', () => {
       const item = btn.closest('.faq__item');
@@ -15,4 +17,24 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
+
+  /* ── About text colour reveal on scroll ── */
+  const about = document.querySelector('.about');
+  if (about) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setTimeout(() => {
+              about.classList.add('about--revealed');
+            }, 200);
+            observer.unobserve(about);
+          }
+        });
+      },
+      { threshold: 0, rootMargin: '-40% 0px -20% 0px' }
+    );
+    observer.observe(about);
+  }
+
 });
